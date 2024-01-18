@@ -14,8 +14,8 @@ Excel 作業本
 ## 解析スクリプト
 Jupyter Notebook
 
-1. [論文の結果の再現用の解析 Jupyter notebook](LDA-mixed-terms.ipynb)
-2. [分野混合用語データの解析  Jupyter notebook](LDA-mixed-terms-standalone.ipynb)
+1. [論文の解析結果の再現用の Jupyter notebook](LDA-mixed-terms.ipynb)
+2. [分野混合用語データの別解析用の Jupyter notebook](LDA-mixed-terms-standalone.ipynb)
 
 ## Prerequisites
 実行に必要な Python packages
