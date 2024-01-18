@@ -24,3 +24,10 @@ Jupyter Notebook
 2. WordCloud
 3. plotly
 4. adjustText
+
+## 結果
+実行結果の .html ファイル
+
+1. [分野混合の用語クラスタリング結果 (#topics: 5)](results/ntop5)
+2. [分野混合の用語クラスタリング結果 (#topics: 10)](results/ntop10)
+3. [分野混合の用語クラスタリング結果 (#topics: 20)](results/ntop20)
