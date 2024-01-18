@@ -10,3 +10,4 @@ saves/
 # files to ignore
 *.csv
 *.txt
+*.md.html
