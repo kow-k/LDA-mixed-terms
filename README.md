@@ -16,6 +16,8 @@ Jupyter Notebook
 1. [分野混合用語データの別解析用の Jupyter notebook](LDA-mixed-terms-standalone.ipynb)
 2. [論文の解析結果の再現用の Jupyter notebook](LDA-mixed-terms.ipynb)
 
+Python 3.9, 3.10, and 3.11 (Anaconda 3上) での作動を確認済み
+
 重要な実行パラメター:
 
 1. **n_topics** [integer]: LDAのtopic数
