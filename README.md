@@ -4,11 +4,13 @@ NLP30/2024の発表論文「LDA を使った専門用語の教師なしクラス
 ## 解析データ
 Excel 作業本
 
-1. [医学用語集 (.xslx データ)](terms-source/terms-medical-v1.xlsx)
-2. [医療縮約表現集 (.xslx データ)](terms-source/terms-mce-v1.xlsx)
-3. [政治経済用語集 (.xslx データ)](terms-source/terms-economic-v1.xlsx)
-4. [法律用語集 (.xslx データ)](terms-source/terms-juridical-v1.xlsx)
-5. [出版用語集 (.xslx データ)](terms-source/terms-publishing-v1.xlsx)
+1. [医学用語集 (.xslx データ)](terms-source/terms-medical-v1b.xlsx)
+2. [医療縮約表現集 (.xslx データ)](terms-source/terms-mce-v2b.xlsx)
+3. [政治経済用語集 (.xslx データ)](terms-source/terms-economic-v1b.xlsx)
+4. [法律用語集 (.xslx データ)](terms-source/terms-juridical-v1a2.xlsx)
+5. [法律用語集 (.xslx データ)](terms-source/terms-juridical-v1b2.xlsx)
+6. [出版用語集 (.xslx データ)](terms-source/terms-publishing-v1b.xlsx)
+7. [料理用語集 (.xslx データ)](terms-source/terms-cooking-v1a.xlsx)
 
 ## 解析スクリプト
 Jupyter Notebook
@@ -33,7 +35,6 @@ Python 3.9, 3.10, and 3.11 (Anaconda 3上) での作動を確認済み
 2 の使い方:
 
 まず 1 を実行し，saves/ に新たに保存された .p ファイルを 2 で読み込む．
-
 
 ## Prerequisites
 実行に必要な Python packages
