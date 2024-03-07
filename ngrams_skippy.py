@@ -40,7 +40,9 @@ def generate_skippy_bigrams (L, sep = "", ignore_adjacency = False, max_distance
 	# create double of indices for segment selection
 	P = [ ]; B = [ ]
 	size = len(L)
-	if size < 2:
+	if size == 0:
+		return L
+	elif size < 2:
 		B.append(sep.join(L))
 	else:
 		for i in range(size):
@@ -110,7 +112,9 @@ def generate_skippy_trigrams (L, sep = "", ignore_adjacency = False, max_distanc
 	# create triple of indices for segment selection
 	P = [ ]; T = [ ]
 	size = len(L)
-	if size < 3:
+	if size == 0:
+		return L
+	elif size < 3:
 		T.append(sep.join(L))
 	else:
 		for i in range(size):
@@ -188,7 +192,9 @@ def generate_skippy_quadrigrams (L, sep = "", ignore_adjacency = False, max_dist
 	# create triple of indices for segment selection
 	P = [ ]; Q = [ ]
 	size = len(L)
-	if size < 4:
+	if size == 0:
+		return L
+	elif size < 4:
 		Q.append(sep.join(L))
 	else:
 		for h in range(size):
