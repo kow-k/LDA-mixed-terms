@@ -15,8 +15,8 @@ Excel 作業本
 ## 解析スクリプト
 Jupyter Notebook
 
-1. [分野混合用語データの別解析用の Jupyter notebook (FastText の処理は未追加)](LDA-mixed-terms-standalone.ipynb)
-2. [論文の解析結果の再現用の Jupyter notebook (FastText の処理を追加済み)](LDA-mixed-terms.ipynb)
+1. [分野混合用語データの別解析用の Jupyter notebook (FastText の処理を追加済み)](LDA-mixed-terms-base.ipynb)
+2. [論文の解析結果の再現用の Jupyter notebook (FastText の処理は未追加)](LDA-mixed-terms-validator.ipynb)
 
 Python 3.9, 3.10, and 3.11 (Anaconda 3上) での作動を確認済み
 
