@@ -22,13 +22,14 @@ Python 3.9, 3.10, and 3.11 (Anaconda 3上) での作動を確認済み
 
 重要な実行パラメター:
 
-0a. **use_LDA**: LDA をエンコーディングで（FastText と併用して）実行するかどうか
-0b. **use_FastText**: FastText を（LDA と併用して）エンコーディングで実行するかどうか
+0a **use_LDA**: LDA をエンコーディングで（FastText と併用して）実行するかどうか
+0b **use_FastText**: FastText を（LDA と併用して）エンコーディングで実行するかどうか
+0c **use_UMAP**: t-SNE の代わりに UMAP を使うかどうか
 1. **n_topics** [integer]: LDAのtopic数
 2. **term_type** [string]: LDA 用のterm のタイプで "1gram", "2gram", "3gram", "skippy2gram", "skippy3gram"のどれか
 3. **max_doc_length** [integer]: 語 (= doc) の最大文字数
 4. **ngram_is_inclusive** [boolean]: LDA 用のterm に使う n-gram を包括的にするかどうか
-5. **max_ga_val** [int, depending on max_doc_size]: LDA 用のterm に使う 不連続 n-gram の連結距離
+5. **max_gap_val** [int, depending on max_doc_size]: LDA 用のterm に使う 不連続 n-gram の連結距離
 6. **minfreq_val_** [integer]: 有効 term 最低頻度 (gensim のminfreq に渡す値)
 7. **abuse_threshold** [float: 0~1.0]: 頻出 term の濾過指数 (gensim のabuse_therehold に渡す値)
 
