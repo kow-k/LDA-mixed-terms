@@ -1,7 +1,9 @@
 # folders to ignore
 .ipynb_checkpoints/
+.vscode/settings.json
 __pycache__/
 saves/
+terms-source-temporary/
 # but include
 !saves/hd-df-sampled-2024-01-05-14.p
 !saves/hd-df-sampled-2024-01-08-18.p
@@ -12,5 +14,3 @@ saves/
 *.txt
 *.md.html
 LDA-mixed-terms copy.ipynb
-.vscode/settings.json
-terms-source-temporary/【哲学用語一覧】頻出単語を簡単な解説つきでまとめて紹介！ レポート徹底攻略.html
