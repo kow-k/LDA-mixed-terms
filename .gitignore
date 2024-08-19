@@ -13,5 +13,6 @@ terms-source-temporary/
 *.csv
 *.txt
 *.md.html
+*.so
 LDA-mixed-terms copy.ipynb
 explore-HDP.ipynb
