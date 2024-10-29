@@ -52,6 +52,7 @@ def gen_ngrams (S: list, n: int, sep = " ", as_list = False, check = False):
     if as_list:
         return R
     return [ sep.join(x) for x in R ]
+
 ##
 def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", missing_mark: str = "…", as_list: bool = False, check: bool = False):
     """
