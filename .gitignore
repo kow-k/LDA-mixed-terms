@@ -11,8 +11,8 @@ terms-source-temporary/
 !saves/mixed-terms-filtered-2024-01-03-15.p
 !saves/mixed-terms-filtered-2024-01-05-12.p
 # files to ignore
-explore-HDP.ipynb
 *.csv
 *.txt
 *.md.html
-*.so
+*.so*.ipynb
+!explore-HDP.ipynb
