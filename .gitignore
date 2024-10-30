@@ -11,8 +11,18 @@ terms-source-temporary/
 !saves/mixed-terms-filtered-2024-01-03-15.p
 !saves/mixed-terms-filtered-2024-01-05-12.p
 # files to ignore
+*.c
 *.csv
 *.txt
 *.md.html
-*.so*.ipynb
+*.so
+# ignore .ipynb
+*.ipynb
+!LDA-mixed-terms-base.ipynb
+!LDA-mixed-terms-validator.ipynb
 !explore-HDP.ipynb
+# ignore .py
+*.py
+!cy_gen_ngrams.py
+!gen_ngrams.py
+!setup.py
