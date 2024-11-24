@@ -37,8 +37,12 @@ def gen_ngrams (S: list, n: int, sep = " ", as_list = False, check = False):
     if check:
         print(f"#S: {S}")
     #
-    if len(S) < n:
-        return S
+    assert n > 0
+    if len(S) <= n:
+        if as_list:
+            return S
+        else:
+            return [ sep.join(S) ]
     #
     R = [ ]
     for i, x in enumerate(S):
@@ -51,7 +55,8 @@ def gen_ngrams (S: list, n: int, sep = " ", as_list = False, check = False):
     ##
     if as_list:
         return R
-    return [ sep.join(x) for x in R ]
+    else:
+        return [ sep.join(x) for x in R ]
 
 ##
 def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", missing_mark: str = "…", as_list: bool = False, check: bool = False):
@@ -61,8 +66,12 @@ def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", mis
     if check:
         print(f"#S: {S}")
     #
-    if len(S) < n:
-        return S
+    assert n > 0
+    if len(S) <= n:
+        if as_list:
+            return S
+        else:
+            return [ sep.join(S) ]
     ## generate target index list
     S_len = len(S)
     R = range(S_len)
@@ -133,7 +142,8 @@ def gen_ngrams_from_str (text: str, n: int, sep = " ", as_list = False, check = 
     ##
     if as_list:
         return R
-    return [ sep.join(x) for x in R ]
+    else:
+        return [ sep.join(x) for x in R ]
 
 ##
 def gen_skippy_ngrams_from_str (text: str, n: int, sep: str = " ", missing_mark: str = "…", max_distance = None, as_list: bool = False, check: bool = False):
@@ -193,6 +203,7 @@ def gen_skippy_ngrams_from_str (text: str, n: int, sep: str = " ", missing_mark:
         #
         return ([ sep.join(r) for r in R ])
 
+##
 def main():
     # test 1
     text1 = "abcdefghij"
