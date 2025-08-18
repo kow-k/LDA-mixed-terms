@@ -25,9 +25,9 @@ Python 3.9, 3.10, and 3.11 (Anaconda 3上) での作動を確認済み
 
 重要な実行パラメター:
 
-0a **use_LDA_for_encoding**: LDA をエンコーディングで（FastText と併用して）実行するかどうか
-0b **use_LDA_for_encoding**: LDA をエンコーディングで（FastText と併用して）実行するかどうか
-0c **use_FastText_for_encoding**: FastText を（LDA と併用して）エンコーディングで実行するかどうか
+0a **use_LDA_for_encoding**: (Labeled) LDA をエンコーディングで（FastText と併用して）実行するかどうか
+0b **use_LDA_for_encoding**: (Labeled) LDA をエンコーディングで（FastText と併用して）実行するかどうか
+0c **use_FastText_for_encoding**: FastText を（(Labeled) LDA と併用して）エンコーディングで実行するかどうか
 0d **use_UMAP** [boolean]: t-SNE の代わりに UMAP を使うかどうか
 1. **max_doc_length** [integer]: 語 (= doc) の最大文字数
 2. **max_n_for_ngram** [integer]: n-gram の nの最大値 
@@ -36,7 +36,7 @@ Python 3.9, 3.10, and 3.11 (Anaconda 3上) での作動を確認済み
 5. **max_gap_rate** [float]: max_doc_size のどれぐらいを 不連続 n-gram の連結距離とするか
 6. **n_topics** [integer]: LDAの topic数
 7. **term_min_freq** [integer]: 有効 term 最低頻度 (gensim のminfreq に渡す値)
-8. **term_abuse_rate** [float: 0~1.0]: 頻出 term の濾過指数 (gensim のabuse_therehold に渡す値)
+8. **term_abuse_rate** [float: 0~1.0]: 頻出 term の濾過指数 (gensim のabuse_therehold に渡す値); Labeled LDA では無効
 
 他のパラメターを変更するのはお勧めできない．やっても良いが，自分でコードが読めない場合には，対処不能になる可能性大．
 
