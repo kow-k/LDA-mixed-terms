@@ -36,12 +36,16 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
     ## generate substrings
     Q = [ ]
     for p in P:
+        ##
         if check:
             print(f"#p: {p}")
+        ##
         q = [ ]
+        
         ## irrelevant cases
         if len(p) < 1:
             pass
+        
         ## cases where len(p) > 1
         elif len(p) >= 2:
             for i in range(len(p)):
@@ -61,7 +65,7 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
                     if pos == 0:
                         q.append (seg)
                         q.append (missing_mark)
-                    elif pos == end_pos:
+                    elif pos == next_pos:
                         q.append (seg)
                     else:
                         q.append (missing_mark)
@@ -70,7 +74,7 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
                 elif gap == 1:
                     if pos == 0:
                         q.append (seg)
-                    elif pos == end_pos:
+                    elif pos == next_pos:
                         q.append (seg)
                     else:
                         q.append (missing_mark)
@@ -78,11 +82,12 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
                 else:
                     if pos == 0:
                         q.append (seg)
-                    elif pos == end_pos:
+                    elif pos == next_pos:
                         q.append (seg)
                     else:
                         q.append (seg)
                         q.append (missing_mark)
+        
         ## cases where len(p) ==  1
         else:
             for pos in p:
@@ -109,6 +114,7 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
         q = q2
         ## update
         Q.append(q)
+    
     ## return result
     if as_list: ## result is a list of unstrung lists
         return Q
@@ -116,24 +122,27 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
         return [ sep.join(q) for q in Q ]
 
 ##
-def gen_ngrams (S: list, n: int, sep = " ", as_list = False, check = False):
+def gen_ngrams (S: list, n: int, sep: str = " ", as_list: bool = False, check: bool = False):
     """
     takes a list S of segments and returns a list R of n-grams out of them.
     """
+    assert n > 0
+    ##
     if check:
         print(f"#S: {S}")
     ##
-    assert n > 0
+    S = [ seg for seg in S if len(seg) > 0 ]
+    ##
     if len(S) <= n:
         if as_list:
-            return S
+            return [ S ]
         else:
             return [ sep.join(S) ]
     #
     R = [ ]
     for i, x in enumerate(S):
         try:
-            y = S[ i:i + n] # get an n-gram
+            y = S[ i : i + n] # get an n-gram
             if len(y) == n: # check its length
                 R.append(y)
         except IndexError:
@@ -141,7 +150,8 @@ def gen_ngrams (S: list, n: int, sep = " ", as_list = False, check = False):
     ##
     if as_list:
         return R
-    return [ sep.join(r) for r in R ]
+    else:
+        return [ sep.join(r) for r in R ]
 
 ##
 def gen_ngrams_from_str (text: str, n: int, sep = " ", as_list = False, check = False):
@@ -170,7 +180,8 @@ def gen_ngrams_from_str (text: str, n: int, sep = " ", as_list = False, check = 
     ##
     if as_list:
         return R
-    return [ sep.join(r) for r in R ]
+    else:
+        return [ sep.join(r) for r in R ]
 
 ##
 def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", missing_mark: str = "…", as_list: bool = False, check: bool = False):
@@ -184,9 +195,10 @@ def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", mis
     #
     if len(S) <= n:
         if as_list:
-            return S
+            return [ S ]
         else:
             return [ sep.join(S) ]
+    
     ## generate target index list
     S_len = len(S)
     R = range(S_len)
@@ -223,6 +235,7 @@ def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", mis
                 last_i = i
         #
         Q.append(q)
+    
     ## return result
     if as_list: ## result is a list of unstrung lists
         return Q
@@ -236,6 +249,7 @@ def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", mis
                 R.append(q)
         #
         return ([ sep.join(r) for r in R ])
+
 ## alias
 gen_sk_ngrams = gen_skippy_ngrams
 
@@ -251,9 +265,10 @@ def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str =
     #
     if len(S) <= n:
         if as_list:
-            return S
+            return [ S ]
         else:
             return [ sep.join(S) ]
+    
     ## generate target index list
     S_len = len(S)
     end_pos = (S_len - 1)
@@ -275,6 +290,7 @@ def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str =
     ##
     if check:
         print(f"#P: {P}")
+    
     ## generate substrings
     Q = [ ]
     for p in P:
@@ -351,6 +367,7 @@ def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str =
         q = q2
         ## update
         Q.append(q)
+    
     ## return result
     if as_list: ## result is a list of unstrung lists
         return Q
