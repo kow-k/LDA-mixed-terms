@@ -2,7 +2,8 @@
 NLP30/2024の発表論文「LDA を使った専門用語の教師なしクラスタリング」の元になった解析データと解析スクリプト
 
 ## 更新
-LDA に加えて(Partially) Labeled LDA [TomotoPy](https://github.com/bab2min/tomotopy) を実装し，分類性能の向上を実現
+1. LDA に加えて(Partially) Labeled LDA [TomotoPy](https://github.com/bab2min/tomotopy) を実装し，分類性能の向上を実現
+2. 高速化のためのCython モジュール (gen_ngram_cy.py) は3.11 以上では走らない模様
 
 ## 解析データ
 Excel 作業本

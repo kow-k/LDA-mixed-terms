@@ -32,7 +32,7 @@ def segment (text: str, sep: str, check: bool):
     return L
 
 ##
-def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: bool = False):
+def make_substrings (P, gap_mark: str = "_", as_list: bool = False, check: bool = False):
     ## generate substrings
     Q = [ ]
     for p in P:
@@ -64,20 +64,20 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
                 if gap > 1:
                     if pos == 0:
                         q.append (seg)
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                     elif pos == next_pos:
                         q.append (seg)
                     else:
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                         q.append (seg)
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                 elif gap == 1:
                     if pos == 0:
                         q.append (seg)
                     elif pos == next_pos:
                         q.append (seg)
                     else:
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                         q.append (seg)
                 else:
                     if pos == 0:
@@ -86,7 +86,7 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
                         q.append (seg)
                     else:
                         q.append (seg)
-                        q.append (missing_mark)
+                        q.append (gap_mark)
         
         ## cases where len(p) ==  1
         else:
@@ -96,15 +96,15 @@ def make_substrings (P, missing_mark: str = "_", as_list: bool = False, check: b
                 seg = S[pos]
                 if   ( pos == 0 ):
                     q.append(seg)
-                    q.append(missing_mark)
+                    q.append(gap_mark)
                 elif ( pos == (S_len - 1)):
-                    q.append(missing_mark)
+                    q.append(gap_mark)
                     q.append(seg)
                 else:
-                    q.append(missing_mark)
+                    q.append(gap_mark)
                     q.append(seg)
-                    q.append(missing_mark)
-        ## singlify repeated missing_marks
+                    q.append(gap_mark)
+        ## singlify repeated gap_marks
         q2 = []
         last = ""
         for x in q:
@@ -184,7 +184,7 @@ def gen_ngrams_from_str (text: str, n: int, sep = " ", as_list = False, check = 
         return [ sep.join(r) for r in R ]
 
 ##
-def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", missing_mark: str = "…", as_list: bool = False, check: bool = False):
+def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", gap_mark: str = "…", as_list: bool = False, check: bool = False):
     """
     takes a list of segments and returns a list of skippy n-grams out of them
     """
@@ -230,7 +230,7 @@ def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", mis
                 if last_i + 1 == i:
                     q.append(seg)
                 else:
-                    q.append(missing_mark)
+                    q.append(gap_mark)
                     q.append(seg)
                 last_i = i
         #
@@ -242,8 +242,8 @@ def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", mis
     else: ## result is a list of strings
         R = [ ]
         for q in Q:
-            ## remove the intial missing_mark wrongly generated
-            if q[0] == missing_mark:
+            ## remove the intial gap_mark wrongly generated
+            if q[0] == gap_mark:
                 R.append(q[1:])
             else:
                 R.append(q)
@@ -254,7 +254,7 @@ def gen_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", mis
 gen_sk_ngrams = gen_skippy_ngrams
 
 ##
-def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str = " ", missing_mark: str = "…", as_list: bool = False, check: bool = False):
+def gen_extended_skippy_ngrams (S: list, n: int, max_gap_size = None, sep: str = " ", gap_mark: str = "…", as_list: bool = False, check: bool = False):
     """
     takes a list of segments and returns a list of skippy n-grams out of them
     """
@@ -279,10 +279,10 @@ def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str =
     ##P = itertools.combinations(I, r = n) # turned out to be offensive
     ## [ x for x in ...] is necessary as in the following
     ## implementation of restriction by max gap distance
-    if max_distance is None: ## max_distance-free
+    if max_gap_size is None: ## max_distance-free
         P = [ x for x in itertools.combinations(R, r = n) if max(x) <= S_len ]
     else: ## max_distance implementation
-        Rx = [[ x for x in itertools.combinations(range(i, i + max_distance + 1), n) if max(x) < len(S) ] for i in R ]
+        Rx = [[ x for x in itertools.combinations(range(i, i + max_gap_size + 1), n) if max(x) < len(S) ] for i in R ]
         ## flatten U
         P = [ ]
         for rx in Rx:
@@ -318,20 +318,20 @@ def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str =
                 if gap > 1:
                     if pos == 0:
                         q.append (seg)
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                     elif pos == end_pos:
                         q.append (seg)
                     else:
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                         q.append (seg)
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                 elif gap == 1:
                     if pos == 0:
                         q.append (seg)
                     elif pos == end_pos:
                         q.append (seg)
                     else:
-                        q.append (missing_mark)
+                        q.append (gap_mark)
                         q.append (seg)
                 else:
                     if pos == 0:
@@ -340,7 +340,7 @@ def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str =
                         q.append (seg)
                     else:
                         q.append (seg)
-                        q.append (missing_mark)
+                        q.append (gap_mark)
         ## cases where len(p) ==  1
         else:
             for pos in p:
@@ -349,15 +349,15 @@ def gen_extended_skippy_ngrams (S: list, n: int, max_distance = None, sep: str =
                 seg = S[pos]
                 if   ( pos == 0 ):
                     q.append(seg)
-                    q.append(missing_mark)
+                    q.append(gap_mark)
                 elif ( pos == (S_len - 1)):
-                    q.append(missing_mark)
+                    q.append(gap_mark)
                     q.append(seg)
                 else:
-                    q.append(missing_mark)
+                    q.append(gap_mark)
                     q.append(seg)
-                    q.append(missing_mark)
-        ## singlify repeated missing_marks
+                    q.append(gap_mark)
+        ## singlify repeated gap_marks
         q2 = []
         last = ""
         for x in q:
@@ -387,7 +387,7 @@ def skippy_ngram_size (s: str, gap_mark: str = "…") -> int:
 sk_ngram_size = skippy_ngram_size
 
 ##
-def gen_skippy_ngrams_from_str (text: str, n: int, sep: str = " ", missing_mark: str = "…", max_distance = None, as_list: bool = False, check: bool = False):
+def gen_skippy_ngrams_from_str (text: str, n: int, sep: str = " ", gap_mark: str = "…", max_distance = None, as_list: bool = False, check: bool = False):
     """
     takes a string and returns a list of skippy n-grams out of segments generated the using separator
     """
