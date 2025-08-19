@@ -8,13 +8,16 @@ NLP30/2024の発表論文「LDA を使った専門用語の教師なしクラス
 ## 解析データ
 Excel 作業本
 
-1. [医学用語集 (.xslx データ)](terms-source/terms-medical-v1b.xlsx)
-2. [医療縮約表現集 (.xslx データ)](terms-source/terms-mce-v2b.xlsx)
-3. [政治経済用語集 (.xslx データ)](terms-source/terms-economic-v1b.xlsx)
-4. [法律用語集 (.xslx データ)](terms-source/terms-juridical-v1a2.xlsx)
-5. [法律用語集 (.xslx データ)](terms-source/terms-juridical-v1b2.xlsx)
-6. [出版用語集 (.xslx データ)](terms-source/terms-publishing-v1b.xlsx)
-7. [料理用語集 (.xslx データ)](terms-source/terms-cooking-v1a.xlsx)
+1. [仏教用語集 (.xslx データ)](terms-source/terms-buddhist-v2a.xlsx)
+2. [料理用語集 (.xslx データ)](terms-source/terms-cooking-v2a.xlsx)
+3. [政治経済用語集 (.xslx データ)](terms-source/terms-economic-v2b.xlsx)
+4. [法律用語集 (.xslx データ)](terms-source/terms-juridical-v2a.xlsx)
+5. [法律用語集 (.xslx データ)](terms-source/terms-juridical-v2b.xlsx)
+6. [医療縮約表現集 (.xslx データ)](terms-source/terms-mce-v2b.xlsx)
+7. [医学用語集 (.xslx データ)](terms-source/terms-medical-v2a.xlsx)
+8. [医学用語集 (.xslx データ)](terms-source/terms-medical-errors-v2a.xlsx)
+9. [哲学用語集 (.xslx データ)](terms-source/terms-philosophical-v2a.xlsx)
+10. [出版用語集 (.xslx データ)](terms-source/terms-publishing-v2a.xlsx)
 
 ## 解析スクリプト
 Jupyter Notebook
